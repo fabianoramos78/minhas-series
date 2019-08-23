@@ -13,7 +13,7 @@ const NovoGenero = () => {
     }
 
     const onSave = () => {
-        axios.post('/api/genres', {
+        axios.post('/api/genres/', {
             name
         })
             .then(res => {
