@@ -8,6 +8,6 @@ O Projeto "Minhas Séries" tem como base um sistema de CRUD para controle de fil
 
 [Fabiano Ramos](https://fabianoramos.dev) - Em construção <br>
 [devPleno](https://www.devpleno.com/) <br>
-[E-mail](contato@fabianoramos.dev)
+E-mail : contato@fabianoramos.dev
 
 
