@@ -16,17 +16,22 @@ const Header = () => {
     const toggle = () => { setOpen(!open) }
   
     return(
-      <Navbar color='dark' light expand='md'>
+      <div>
+        <Navbar color='dark' light expand='md'>
           <NavbarBrand className="text-white" tag={Link} to='/'>Minhas Séries</NavbarBrand>
           <NavbarToggler onClick={toggle}/>
           <Collapse isOpen={open} navbar>
             <Nav className='ml-auto' navbar>
               <NavItem>              
-                <NavLink type='button' className='btn btn-secondary text-white' tag={Link} to='/generos'>Gêneros</NavLink>
+                <NavLink className='btn btn-secondary text-white' tag={Link} to='/series'>Séries</NavLink>
+              </NavItem>
+              <NavItem>              
+                <NavLink className='btn btn-secondary text-white' tag={Link} to='/generos'>Gêneros</NavLink>
               </NavItem>
             </Nav>
           </Collapse>      
        </Navbar>
+      </div>      
     )
   }
 

@@ -2,21 +2,21 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
-const Generos = () => {
+const Series = () => {
 
     const [data, setData] = useState([])
 
     useEffect(() => {
         axios
-            .get('/api/genres')
+            .get('/api/series')
             .then(res => {
                 setData(res.data.data)
             })
     }, [])
 
-    const deleteGenero = id => {
+    const deleteSerie = id => {
         axios
-            .delete('api/genres/' + id) 
+            .delete('api/series/' + id) 
             .then(res => {
                 const filtrado = data.filter(item => item.id !== id)
                 setData(filtrado)
@@ -29,8 +29,8 @@ const Generos = () => {
                 <th scope='row'>{record.id}</th>
                 <td>{record.name}</td>
                 <td>
-                    <Link onClick={() => deleteGenero(record.id)} className='btn btn-danger'>Remover</Link>
-                    <Link to={'/generos/' + record.id} className='btn btn-secondary'>Editar</Link>
+                    <Link onClick={() => deleteSerie(record.id)} className='btn btn-danger'>Remover</Link>
+                    <Link to={'/series/' + record.id} className='btn btn-secondary'>Info</Link>
                 </td>
             </tr> 
         )
@@ -39,9 +39,9 @@ const Generos = () => {
     if (data.length === 0) {
         return (
             <div className='container'> 
-                <h1>Gêneros</h1>
+                <h1>Séries</h1>
                 <div className='alert alert-warning alert-dismissible fade show' role='alert'>
-                    <strong>Não há gêneros cadastrados. Clique <Link to="/generos/novo" className="alert-link">aqui</Link> para cadastrar novo gênero</strong>                        
+                    <strong>Não há séries cadastradas. Clique <Link to="/series/novo" className="alert-link">aqui</Link> para cadastrar uma nova série.</strong>                        
                 </div>
             </div>
         )
@@ -49,11 +49,11 @@ const Generos = () => {
 
     return (
         <div className='container'>
-            <h1>Gêneros</h1>
+            <h1>Séries</h1>
             <Link 
                 exact                
-                to='/generos/novo' 
-                className='btn btn-secondary btn-block'>Adicionar gênero
+                to='/series/novo' 
+                className='btn btn-secondary btn-block'>Adicionar série
             </Link>
             <hr/>
             <table className='table table-hover table-dark'>
@@ -72,4 +72,4 @@ const Generos = () => {
     )
 }
 
-export default Generos
+export default Series
